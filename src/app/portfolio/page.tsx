@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { Section } from "@/components/ui/Section";
 import { PROJECTS } from "@/constants";
-import { ExternalLink, Code, Smartphone, Globe } from "lucide-react";
+import { ExternalLink, Code } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const CATEGORIES = ["All", "Mobile", "Web"];
 
@@ -51,7 +52,7 @@ export default function PortfolioPage() {
           className="grid md:grid-cols-2 gap-10"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, i) => (
+            {filteredProjects.map((project) => (
               <motion.div
                 key={project.title}
                 layout
@@ -62,15 +63,26 @@ export default function PortfolioPage() {
                 className="group relative bg-background rounded-[2.5rem] border border-border overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
               >
                 <div className="aspect-video bg-slate-100 dark:bg-slate-900 overflow-hidden relative">
-                   {/* Project Image Placeholder */}
-                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                      {project.category === 'Mobile' ? <Smartphone className="h-20 w-20 text-primary opacity-20" /> : <Globe className="h-20 w-20 text-primary opacity-20" />}
-                   </div>
+                   <Image 
+                     src={project.image} 
+                     alt={project.title}
+                     fill
+                     className="object-cover transition-transform duration-700 group-hover:scale-110"
+                     unoptimized={project.image.includes('googleusercontent')}
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                    
-                   <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center space-x-6">
-                      <button className="p-4 bg-white text-primary rounded-full hover:scale-110 transition-transform">
-                        <ExternalLink className="h-6 w-6" />
-                      </button>
+                    <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center space-x-6">
+                      {project.link && (
+                        <a 
+                          href={project.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="p-4 bg-white text-primary rounded-full hover:scale-110 transition-transform"
+                        >
+                          <ExternalLink className="h-6 w-6" />
+                        </a>
+                      )}
                       <button className="p-4 bg-white text-primary rounded-full hover:scale-110 transition-transform">
                         <Code className="h-6 w-6" />
                       </button>

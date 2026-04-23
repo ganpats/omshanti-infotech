@@ -58,33 +58,118 @@ export const SERVICES = [
   }
 ];
 
-export const PROJECTS = [
+export interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  category: string;
+  link?: string;
+  image: string;
+}
+
+export const PROJECTS: Project[] = [
   {
-    title: "E-Commerce App",
-    description: "A full-featured mobile commerce platform with real-time tracking.",
-    tech: ["React Native", "Node.js", "MongoDB"],
+    title: "The Pao App",
+    description: "Get up and go. Discover unique spots and hidden gems around you.",
+    tech: ["Swift", "iOS", "Firebase"],
     category: "Mobile",
-    image: "/projects/ecommerce.jpg"
+    link: "https://apps.apple.com/us/app/the-pao-app/id1398395194",
+    image: "https://ganpats.github.io/images/Apps/PaoApp.jpg"
   },
   {
-    title: "Real Estate Portal",
-    description: "High-performance web platform for property listings and virtual tours.",
-    tech: ["Next.js", "Tailwind CSS", "Firebase"],
-    category: "Web",
-    image: "/projects/realestate.jpg"
-  },
-  {
-    title: "Health & Fitness Tracker",
-    description: "Comprehensive fitness monitoring app with wearable integration.",
-    tech: ["Flutter", "Express", "PostgreSQL"],
+    title: "Wooden Street",
+    description: "Furniture... bonded with love. India's finest custom furniture store.",
+    tech: ["Objective-C", "iOS", "REST API"],
     category: "Mobile",
-    image: "/projects/fitness.jpg"
+    link: "https://itunes.apple.com/in/app/wooden-street/id1162068644?mt=8",
+    image: "https://ganpats.github.io/images/Apps/WoodenStreet.jpg"
   },
   {
-    title: "SaaS Dashboard",
-    description: "Advanced analytics dashboard for enterprise resource planning.",
-    tech: ["React", "TypeScript", "D3.js"],
+    title: "Arena Two DApp",
+    description: "Arena Two revolutionizes sports entertainment with real-time fan voting and interactive experiences.",
+    tech: ["Next.js", "Web3", "Tailwind CSS"],
     category: "Web",
-    image: "/projects/dashboard.jpg"
+    link: "https://app.arenatwo.com/en",
+    image: "https://ganpats.github.io/images/Websites/ArenaTwo.png"
+  },
+  {
+    title: "vg.bio",
+    description: "Create a secure, compliant link-in-bio that prevents shadow banning. Fully Instagram, Facebook, and TikTok friendly.",
+    tech: ["Next.js", "TypeScript", "Node.js"],
+    category: "Web",
+    link: "https://vg.bio/en",
+    image: "https://vg.bio/sloganed.png"
+  },
+  {
+    title: "Sikho Kids",
+    description: "Learn ABC, Hindi Varnmala, Numbers & more! Fun bilingual app for kids.",
+    tech: ["Flutter", "Android", "iOS"],
+    category: "Mobile",
+    link: "https://play.google.com/store/apps/details?id=com.sikhokids.app&hl=en",
+    image: "https://play-lh.googleusercontent.com/uYS8Kv8GDpQHUmrF8YRVUKYHz7zQQrTtV49VHfXVaPRAogde_OMmM_IMAt5-3NQ4wvGqVoORbWhvXoc5oM7-"
+  },
+  {
+    title: "My Breathing",
+    description: "Relieve stress and improve focus with guided breathing and mindfulness.",
+    tech: ["Flutter", "Dart", "UX Design"],
+    category: "Mobile",
+    link: "https://play.google.com/store/apps/details?id=com.mybreathing.app&hl=en",
+    image: "https://play-lh.googleusercontent.com/SWYiDanpBypPaSxPAL2on9_OdboMnZ4VIEtoMTDddkyj2isyRtzmrAA1VmyKBZdHFPO184kBYb87qcgxR6LUgYE"
+  },
+  {
+    title: "Pao Media Company",
+    description: "Highlights unique experiences and small, local businesses around the world.",
+    tech: ["React", "Styled Components", "WordPress"],
+    category: "Web",
+    link: "https://paomediacompany.com/",
+    image: "https://ganpats.github.io/images/Websites/PaoMedia.webp"
+  },
+  {
+    title: "Arena Two",
+    description: "8 Teams. 8 Cities. $8M Prize. A new 6-a-side live football tournament.",
+    tech: ["Next.js", "Framer Motion", "Tailwind CSS"],
+    category: "Web",
+    link: "https://arenatwo.com/",
+    image: "https://ganpats.github.io/images/Websites/ArenaTwo.png"
+  },
+  {
+    title: "Aasin Atticus",
+    description: "Bring Your Brand’s Creative Vision To Life.",
+    tech: ["UI/UX", "Wordpress", "php"],
+    category: "Web",
+    link: "https://aasinatticus.com/",
+    image: "https://ganpats.github.io/images/Websites/AasinAtticus.png"
+  },
+  {
+    title: "MySIPonline",
+    description: "Invest in Best Mutual Funds. Simplify your investment journey.",
+    tech: ["Objective-C", "iOS", "Finance"],
+    category: "Mobile",
+    link: "https://itunes.apple.com/in/app/mysiponline-mutual-fund-app/id1246082058?mt=8",
+    image: "https://ganpats.github.io/images/Apps/MySIPonline.jpg"
+  },
+  {
+    title: "Rishi Prasad Gyan Pratiyogita",
+    description: "Knowledge Competition App. Enhance your spiritual and cultural knowledge.",
+    tech: ["Flutter", "Dart", "Firebase"],
+    category: "Mobile",
+    link: "https://apps.apple.com/in/app/rishi-prasad-gyan-pratiyogita/id6447197555",
+    image: "https://ganpats.github.io/images/Apps/RishiPrasad.jpg"
+  },
+  {
+    title: "Global Assignment Help",
+    description: "Education & Assignment Help App. Expert assistance for your academic needs.",
+    tech: ["Swift", "iOS", "Education"],
+    category: "Mobile",
+    link: "https://apps.apple.com/us/app/global-assignment-help/id1094249594",
+    image: "https://ganpats.github.io/images/Apps/GlobalAssignmentHelp.jpg"
+  },
+  {
+    title: "Mushroom Fall",
+    description: "Navigate to bottom of never ending maze as fast as you can!",
+    tech: ["Unity", "C#", "Game Design"],
+    category: "Mobile",
+    link: "https://play.google.com/store/apps/details?id=com.mushroomfall&hl=en",
+    image: "https://play-lh.googleusercontent.com/lCtazS5PIddpJzWKQEsqb7Rb2K0Dp_x37RqgS6YRPz3uBBZWVu_KdXZNEBm-z_YJ7YA"
   }
 ];

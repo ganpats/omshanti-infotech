@@ -52,7 +52,7 @@ export default function AboutPage() {
           <div className="space-y-8">
             <h2 className="text-3xl md:text-4xl font-bold font-heading">Our Mission & Vision</h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Founded with a passion for technology, OmShanti Infotech has grown into a powerhouse of full-stack development. We specialize in React Native, Flutter, Next.js, and Node.js, delivering scalable architectures that drive business growth.
+              Founded by <strong>Ganpat Lakhara</strong> with a passion for technology, OmShanti Infotech has grown into a powerhouse of full-stack development. We specialize in React Native, Flutter, Next.js, and Node.js, delivering scalable architectures that drive business growth.
             </p>
             <div className="space-y-4">
               {[
@@ -83,6 +83,40 @@ export default function AboutPage() {
               <p className="text-muted-foreground leading-relaxed italic">
                 &quot;{val.description}&quot;
               </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Experience Section */}
+      <Section className="bg-slate-50 dark:bg-slate-900/20">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">Our Journey & Experience</h2>
+          <p className="text-xl text-muted-foreground">
+            With over a decade of experience in software development, we have worked with some of the most innovative companies across the globe.
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            { company: "Arena Two", role: "Full Stack Developer", link: "https://arenatwo.com" },
+            { company: "Vibeground", role: "Full Stack Developer", link: "https://vibeground.com" },
+            { company: "The Pao App", role: "Software Developer", link: "https://thepaoapp.com" },
+            { company: "Wooden Street", role: "iOS Developer", link: "https://woodenstreet.com" },
+            { company: "Ebizz Infotech", role: "iOS Developer", link: "https://ebizzinfotech.com" },
+            { company: "Sahajanand Technologies", role: "Software Developer", link: "https://stpl.com" }
+          ].map((exp, i) => (
+            <div key={i} className="p-8 bg-background border border-border rounded-3xl hover:border-primary/50 transition-all group">
+              <h4 className="text-xs font-bold text-primary uppercase tracking-widest mb-2">{exp.role}</h4>
+              <h3 className="text-2xl font-bold font-heading mb-4 group-hover:text-primary transition-colors">{exp.company}</h3>
+              <a 
+                href={exp.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sm font-bold text-muted-foreground hover:text-primary transition-colors"
+              >
+                Visit Website <Award className="h-4 w-4 ml-2" />
+              </a>
             </div>
           ))}
         </div>
