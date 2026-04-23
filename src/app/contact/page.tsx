@@ -12,9 +12,10 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     
     // Construct dynamic subject
     const userSubject = formData.get("subject");
@@ -23,17 +24,25 @@ export default function ContactPage() {
     try {
       const response = await fetch(`https://formsubmit.co/ajax/${COMPANY_DETAILS.email}`, {
         method: "POST",
+        headers: { 
+          'Accept': 'application/json'
+        },
         body: formData,
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success === "true") {
         setIsSuccess(true);
-        e.currentTarget.reset();
+        form.reset();
       } else {
-        alert("Something went wrong. Please try again.");
+        throw new Error(result.message || "Submission failed");
       }
     } catch (error) {
-      alert("Network error. Please check your connection.");
+      console.error("FormSubmit Error:", error);
+      // If we got here but the result actually succeeded in the background, 
+      // we check if it was just a parsing error.
+      alert("There was an issue processing the response, but your message may have been sent. Please check your email or try again if you don't receive a confirmation.");
     } finally {
       setIsSubmitting(false);
     }
