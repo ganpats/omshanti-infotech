@@ -1,12 +1,44 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { Section } from "@/components/ui/Section";
-import { Mail, Phone, MapPin, Send, MessageCircle, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle2, Loader2 } from "lucide-react";
 import { COMPANY_DETAILS } from "@/constants";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    
+    // Construct dynamic subject
+    const userSubject = formData.get("subject");
+    formData.set("_subject", `New Contact Form Submission - ${userSubject}`);
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${COMPANY_DETAILS.email}`, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        e.currentTarget.reset();
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Network error. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <MainLayout>
       <Section className="bg-slate-50 dark:bg-slate-900/50 pt-32 pb-20">
@@ -75,67 +107,95 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="bg-white dark:bg-slate-900 p-8 md:p-12 rounded-[2.5rem] border border-border shadow-2xl shadow-primary/5">
-              <form action={`https://formsubmit.co/${COMPANY_DETAILS.email}`} method="POST" className="space-y-6">
-                {/* FormSubmit Configuration */}
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_subject" value="New Contact Form Submission - OmShanti Infotech" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="text" name="_honey" style={{ display: 'none' }} />
-
-                <div className="grid md:grid-cols-2 gap-6">
+              {isSuccess ? (
+                <div className="text-center py-12 space-y-6">
+                  <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle2 className="h-10 w-10" />
+                  </div>
+                  <h3 className="text-3xl font-bold font-heading">Message Sent!</h3>
+                  <p className="text-muted-foreground text-lg">
+                    Thank you for reaching out. We have received your message and will get back to you within 24 hours.
+                  </p>
+                  <button 
+                    onClick={() => setIsSuccess(false)}
+                    className="text-primary font-bold hover:underline pt-4"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* FormSubmit Configuration */}
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_subject" value="New Contact Form Submission" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="text" name="_honey" style={{ display: 'none' }} />
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-bold ml-1">Your Name</label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        placeholder="John Doe"
+                        className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-sm font-bold ml-1">Email Address</label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="john@example.com"
+                        className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      />
+                    </div>
+                  </div>
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-bold ml-1">Your Name</label>
+                    <label htmlFor="subject" className="text-sm font-bold ml-1">Subject</label>
                     <input
-                      id="name"
-                      name="name"
+                      id="subject"
+                      name="subject"
                       type="text"
                       required
-                      placeholder="John Doe"
+                      placeholder="Project Inquiry"
                       className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-bold ml-1">Email Address</label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
+                    <label htmlFor="message" className="text-sm font-bold ml-1">Your Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
                       required
-                      placeholder="john@example.com"
-                      className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      rows={6}
+                      placeholder="Tell us about your project goals and requirements..."
+                      className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
                     />
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-bold ml-1">Subject</label>
-                  <input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    required
-                    placeholder="Project Inquiry"
-                    className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-bold ml-1">Your Message</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={6}
-                    placeholder="Tell us about your project goals and requirements..."
-                    className="w-full px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-5 bg-primary text-primary-foreground rounded-xl font-bold text-lg flex items-center justify-center space-x-2 shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
-                >
-                  <span>Send Message</span>
-                  <Send className="h-5 w-5" />
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-5 bg-primary text-primary-foreground rounded-xl font-bold text-lg flex items-center justify-center space-x-2 shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <Send className="h-5 w-5" />
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
