@@ -13,7 +13,7 @@ export default function Home() {
       <TechStack />
       <ServicesOverview />
       
-      {/* Testimonials Placeholder */}
+      {/* 
       <Section className="bg-primary/5">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-3">Testimonials</h2>
@@ -43,6 +43,7 @@ export default function Home() {
           ))}
         </div>
       </Section>
+      */}
 
       {/* CTA Section */}
       <Section containerClassName="max-w-5xl">
