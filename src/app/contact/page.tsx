@@ -16,7 +16,7 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     const formData = new FormData(form);
-    
+
     // Construct dynamic subject
     const userSubject = formData.get("subject");
     formData.set("_subject", `New Contact Form Submission - ${userSubject}`);
@@ -24,7 +24,7 @@ export default function ContactPage() {
     try {
       const response = await fetch(`https://formsubmit.co/ajax/${COMPANY_DETAILS.email}`, {
         method: "POST",
-        headers: { 
+        headers: {
           'Accept': 'application/json'
         },
         body: formData,
@@ -125,7 +125,7 @@ export default function ContactPage() {
                   <p className="text-muted-foreground text-lg">
                     Thank you for reaching out. We have received your message and will get back to you within 24 hours.
                   </p>
-                  <button 
+                  <button
                     onClick={() => setIsSuccess(false)}
                     className="text-primary font-bold hover:underline pt-4"
                   >
@@ -139,7 +139,7 @@ export default function ContactPage() {
                   <input type="hidden" name="_subject" value="New Contact Form Submission" />
                   <input type="hidden" name="_captcha" value="false" />
                   <input type="text" name="_honey" style={{ display: 'none' }} />
-                  
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-bold ml-1">Your Name</label>
@@ -211,10 +211,13 @@ export default function ContactPage() {
       </Section>
 
       {/* Map Section */}
-      <Section className="py-0 overflow-hidden h-[500px]">
-        <div className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700 border-y border-border">
+      <Section 
+        className="pt-0 pb-20 overflow-hidden h-[650px]" 
+        containerClassName="h-full"
+      >
+        <div className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700 border border-border rounded-[2.5rem] overflow-hidden shadow-2xl">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.718617565451!2d73.74312067536166!3d24.564478178120613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e55590c4273d%3A0xc47e44c278e9b60b!2s236%2C%20Shri%20Laxmi%20Nagar%2C%20Bedwas%2C%20Udaipur%2C%20Rajasthan%20313001!5e0!3m2!1sen!2sin!4v1713876000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d207.28414974739727!2d73.76290411792172!3d24.57682268974804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1776959455103!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0 }}
