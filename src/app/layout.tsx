@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     description: "Premium Software Development Services",
     siteName: COMPANY_DETAILS.name,
   },
+  verification: {
+    google: "vSToR7dgSRoe21Yrl9OoV54ofoWnUbEqOPAOxRdKYew",
+  },
 };
 
 export default function RootLayout({
