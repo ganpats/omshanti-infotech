@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://omshantiinfotech.com",
+    url: "https://omshantiinfotech.in",
     title: COMPANY_DETAILS.name,
     description: "Premium Software Development Services",
     siteName: COMPANY_DETAILS.name,
