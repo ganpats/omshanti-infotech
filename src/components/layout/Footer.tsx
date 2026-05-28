@@ -20,7 +20,7 @@ export function Footer() {
               Empowering businesses through innovative software solutions. Specializing in high-performance mobile and web applications.
             </p>
             <div className="flex items-center space-x-4">
-              <Link href="#" className="p-2 bg-background rounded-full border border-border hover:border-primary transition-colors">
+              <Link href="#" className="p-2 bg-background rounded-full border border-border hover:border-primary transition-colors" aria-label="External reference link">
                 <ArrowUpRight className="h-5 w-5" />
               </Link>
               {/* Add social icons here if needed */}

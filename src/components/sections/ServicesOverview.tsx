@@ -47,7 +47,7 @@ export function ServicesOverview() {
                 href="/services"
                 className="flex items-center text-sm font-bold text-primary group-hover:gap-2 transition-all"
               >
-                Learn More <ArrowRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-all" />
+                Learn More <span className="sr-only">about {service.title}</span> <ArrowRight className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-all" />
               </Link>
             </div>
           );

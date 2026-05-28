@@ -18,10 +18,10 @@ export function TechStack() {
   return (
     <Section className="py-16 md:py-24">
       <div className="flex flex-col items-center">
-        <h3 className="text-xl font-bold font-heading mb-12 text-muted-foreground opacity-60 uppercase tracking-[0.3em]">
+        <h2 className="text-xl font-bold font-heading mb-12 text-muted-foreground opacity-60 uppercase tracking-[0.3em]">
           Technologies We Master
-        </h3>
-        
+        </h2>
+
         <div className="flex flex-wrap justify-center gap-6 md:gap-10 opacity-70 hover:opacity-100 transition-opacity duration-500">
           {TECHS.map((tech) => (
             <div
