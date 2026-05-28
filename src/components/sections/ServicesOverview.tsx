@@ -25,7 +25,7 @@ export function ServicesOverview() {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {SERVICES.map((service, index) => {
+        {SERVICES.map((service) => {
           const Icon = ICON_MAP[service.icon as keyof typeof ICON_MAP];
           return (
             <div
@@ -33,16 +33,16 @@ export function ServicesOverview() {
               className="group p-8 rounded-3xl bg-background border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 relative overflow-hidden"
             >
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500" />
-              
+
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                 <Icon className="h-7 w-7" />
               </div>
-              
+
               <h4 className="text-xl font-bold font-heading mb-4">{service.title}</h4>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 {service.description}
               </p>
-              
+
               <Link
                 href="/services"
                 className="flex items-center text-sm font-bold text-primary group-hover:gap-2 transition-all"

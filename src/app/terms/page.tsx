@@ -18,7 +18,7 @@ export default function TermsOfService() {
             <p><strong>Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</strong></p>
             
             <p>
-              Welcome to {COMPANY_DETAILS.name}! These terms and conditions outline the rules and regulations for the use of {COMPANY_DETAILS.name}'s Website and Services.
+              Welcome to {COMPANY_DETAILS.name}! These terms and conditions outline the rules and regulations for the use of {COMPANY_DETAILS.name}&apos;s Website and Services.
             </p>
             
             <p>

@@ -4,7 +4,7 @@ import { ServicesOverview } from "@/components/sections/ServicesOverview";
 import { TechStack } from "@/components/sections/TechStack";
 import { Section } from "@/components/ui/Section";
 import Link from "next/link";
-import { Quote } from "lucide-react";
+// Removed unused Quote import
 
 export default function Home() {
   return (

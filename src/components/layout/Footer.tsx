@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, MessageSquare, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import { COMPANY_DETAILS, SERVICES } from "@/constants";
 
 export function Footer() {

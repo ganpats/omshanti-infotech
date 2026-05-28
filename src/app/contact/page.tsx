@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { Section } from "@/components/ui/Section";
-import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, MapPin, Send, MessageCircle, Clock, CheckCircle2, Loader2 } from "lucide-react";
 import { COMPANY_DETAILS } from "@/constants";
 
 export default function ContactPage() {
