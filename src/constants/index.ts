@@ -167,7 +167,7 @@ export const PROJECTS: Project[] = [
   {
     title: "Mushroom Fall",
     description: "Navigate to bottom of never ending maze as fast as you can!",
-    tech: ["Unity", "C#", "Game Design"],
+    tech: ["HTML5", "JavaScript", "Game Design"],
     category: "Mobile",
     link: "https://play.google.com/store/apps/details?id=com.mushroomfall&hl=en",
     image: "https://play-lh.googleusercontent.com/lCtazS5PIddpJzWKQEsqb7Rb2K0Dp_x37RqgS6YRPz3uBBZWVu_KdXZNEBm-z_YJ7YA"
