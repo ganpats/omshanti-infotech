@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Smartphone, Globe, Code } from "lucide-react";
 import { Section } from "@/components/ui/Section";
@@ -91,15 +90,38 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative z-10 w-full h-[400px] xl:h-[500px] rounded-[3rem] border border-border/50 overflow-hidden shadow-2xl"
+            className="relative z-10 w-full h-[600px] bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 rounded-[3rem] border border-white/10 overflow-hidden backdrop-blur-3xl shadow-2xl"
           >
-            <Image
-              src="/banner.png"
-              alt="OmShanti Infotech"
-              fill
-              className="object-cover"
-              priority
-            />
+            {/* Abstract UI Mockup */}
+            <div className="absolute inset-8 bg-slate-950 rounded-2xl border border-white/5 shadow-inner overflow-hidden">
+               <div className="p-6 border-b border-white/5 flex items-center justify-between">
+                 <div className="flex space-x-2">
+                   <div className="w-3 h-3 rounded-full bg-red-500/50" />
+                   <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+                   <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                 </div>
+                 <div className="h-2 w-32 bg-white/10 rounded-full" />
+               </div>
+               <div className="p-8 space-y-6">
+                 <div className="h-4 w-3/4 bg-white/20 rounded-full animate-pulse" />
+                 <div className="h-4 w-1/2 bg-white/10 rounded-full" />
+                 <div className="grid grid-cols-2 gap-4 pt-4">
+                   <div className="h-32 bg-primary/20 rounded-xl border border-primary/30 flex items-center justify-center">
+                     <Smartphone className="h-10 w-10 text-primary" />
+                   </div>
+                   <div className="h-32 bg-secondary/20 rounded-xl border border-secondary/30 flex items-center justify-center">
+                     <Globe className="h-10 w-10 text-secondary" />
+                   </div>
+                 </div>
+                 <div className="h-24 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center">
+                   <Code className="h-8 w-8 text-white/40" />
+                 </div>
+               </div>
+            </div>
+            
+            {/* Animated Blobs */}
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/30 rounded-full blur-[100px] animate-pulse" />
+            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-accent/30 rounded-full blur-[100px] animate-pulse delay-700" />
           </motion.div>
 
           {/* Decorative Elements */}
