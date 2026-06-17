@@ -69,7 +69,7 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    title: "The Pao App",
+    title: "City Discovery App",
     description: "Get up and go. Discover unique spots and hidden gems around you.",
     tech: ["Swift", "iOS", "Firebase"],
     category: "Mobile",
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     image: "https://ganpats.github.io/images/Apps/PaoApp.jpg"
   },
   {
-    title: "Wooden Street",
+    title: "Online Furniture Shopping App",
     description: "Furniture... bonded with love. India's finest custom furniture store.",
     tech: ["Objective-C", "iOS", "REST API"],
     category: "Mobile",
@@ -141,7 +141,7 @@ export const PROJECTS: Project[] = [
     image: "https://ganpats.github.io/images/Websites/AasinAtticus.png"
   },
   {
-    title: "MySIPonline",
+    title: "Mutual Fund Investment App",
     description: "Invest in Best Mutual Funds. Simplify your investment journey.",
     tech: ["Objective-C", "iOS", "Finance"],
     category: "Mobile",
@@ -157,7 +157,7 @@ export const PROJECTS: Project[] = [
     image: "https://ganpats.github.io/images/Apps/RishiPrasad.jpg"
   },
   {
-    title: "Global Assignment Help",
+    title: "Education & Assignment App",
     description: "Education & Assignment Help App. Expert assistance for your academic needs.",
     tech: ["Swift", "iOS", "Education"],
     category: "Mobile",

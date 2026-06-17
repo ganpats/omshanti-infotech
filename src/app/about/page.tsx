@@ -44,10 +44,10 @@ export default function AboutPage() {
       <Section>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 rounded-[3rem] overflow-hidden border border-border">
-             <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-[10rem] font-bold opacity-10 font-heading">OSI</span>
-             </div>
-             {/* Abstract image or illustration placeholder */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-[10rem] font-bold opacity-10 font-heading">OSI</span>
+            </div>
+            {/* Abstract image or illustration placeholder */}
           </div>
           <div className="space-y-8">
             <h2 className="text-3xl md:text-4xl font-bold font-heading">Our Mission & Vision</h2>
@@ -96,7 +96,7 @@ export default function AboutPage() {
             With over a decade of experience in software development, we have worked with some of the most innovative companies across the globe.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             { company: "Arena Two", role: "Full Stack Developer", link: "https://arenatwo.com" },
@@ -109,9 +109,9 @@ export default function AboutPage() {
             <div key={i} className="p-8 bg-background border border-border rounded-3xl hover:border-primary/50 transition-all group">
               <h4 className="text-xs font-bold text-primary uppercase tracking-widest mb-2">{exp.role}</h4>
               <h3 className="text-2xl font-bold font-heading mb-4 group-hover:text-primary transition-colors">{exp.company}</h3>
-              <a 
-                href={exp.link} 
-                target="_blank" 
+              <a
+                href={exp.link}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-sm font-bold text-muted-foreground hover:text-primary transition-colors"
               >
